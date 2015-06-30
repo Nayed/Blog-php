@@ -15,5 +15,4 @@ class Autoloader{
             require __DIR__ . '/' . $classname . '.php';
         }
     }
-
 }
