@@ -1,6 +1,10 @@
 <?php
+//echo '<pre>'; var_dump(); echo '<\pre>';
 
-$pdo = new PDO('mysql:dbname=blog-php;host=localhost', 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$count = $pdo->exec('INSERT INTO articles SET title="My title", date="' . date('Y-m-d H:i:s') . '"');
-var_dump($count);
+$db = new App\Database('blog-php');
+
+$data = $db->query('SELECT * FROM articles');
+
+echo '<pre>'; var_dump($data); //echo '<\pre>';
+//$count = $pdo->exec('INSERT INTO articles SET title="My title", date="' . date('Y-m-d H:i:s') . '"');
+//echo '<pre>'; var_dump($res); echo '</pre>';
