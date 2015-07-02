@@ -16,15 +16,17 @@ class Database{
     }
 
     private function getPDO(){
-        $pdo = new PDO('mysql:dbname=blog-php;host=localhost', 'root', '');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->pdo = $pdo;
-        return $pdo;
+        if(is_null($this->pdo)){
+            $pdo = new PDO('mysql:dbname=blog-php;host=localhost', 'root', '');
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = $pdo;
+        }
+        return $this->pdo;
     }
 
-    public function query($statement){
+    public function query($statement, $classname){
         $req = $this->getPDO()->query($statement);
-        $data = $req->fetchAll(PDO::FETCH_OBJ);
+        $data = $req->fetchAll(PDO::FETCH_CLASS, $classname);
         return $data;
     }
 }

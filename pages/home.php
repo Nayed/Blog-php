@@ -1,10 +1,11 @@
-<?php
-//echo '<pre>'; var_dump(); echo '<\pre>';
+<?php foreach ($db->query('SELECT * FROM articles', 'App\Table\Article') as $post): ?>
 
-$db = new App\Database('blog-php');
+    <h2>
+            <a href="<? $post->getURL; ?>"><?= $post->title; ?></a>
+    </h2>
 
-$data = $db->query('SELECT * FROM articles');
+    <p><?= $post->getPreview(); ?></p>
 
-echo '<pre>'; var_dump($data); //echo '<\pre>';
-//$count = $pdo->exec('INSERT INTO articles SET title="My title", date="' . date('Y-m-d H:i:s') . '"');
-//echo '<pre>'; var_dump($res); echo '</pre>';
+
+
+<?php endforeach; ?>
