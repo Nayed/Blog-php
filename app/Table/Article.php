@@ -9,6 +9,8 @@ class Article{
 	}
     
     public function getPreview(){
-    	return $this->content;
+    	$html = '<p>' . substr($this->content,0, 150) . '...</p>';
+    	$html .= '<p><a href="' . $this->getURL() . ' ">See the rest...</a></p>';
+    	return $html;
     }
 }
