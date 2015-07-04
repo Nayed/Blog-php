@@ -10,8 +10,6 @@ else{
     $p = 'home';
 }
 
-// Initialize objects
-$db = new App\Database('blog-php');
 
 ob_start();
 if($p === 'home'){
