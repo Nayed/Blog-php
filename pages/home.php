@@ -7,7 +7,7 @@
             </h2>
 
             <p>
-                <em><?= $post->category; ?></em>
+                <em><?= $post->categories; ?></em>
             </p>
 
             <p><?= $post->preview; ?></p>
@@ -17,10 +17,10 @@
 
     <div class="col-sm-4">
         <ul>
-            <?php foreach (\App\Table\category::all() as $category): ?>
+            <?php foreach (\App\Table\Categorie::all() as $categories): ?>
 
                 <li>
-                    <a href="<?= $category->url; ?>"><?= $category->title; ?></a>
+                    <a href="<?= $categories->url; ?>"><?= $categories->title; ?></a>
                 </li>
         
             <?php endforeach; ?>

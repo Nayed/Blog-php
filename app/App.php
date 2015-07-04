@@ -11,7 +11,7 @@ class App{
     private static $database;
 
     public static function getDB(){
-        if(self::$database === null){
+        if(is_null(self::$database)){
             self::$database = new Database(self::DB_NAME, self::DB_USER, self::DB_PASS, self::DB_HOST);
         }
         return self::$database;

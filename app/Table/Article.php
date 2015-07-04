@@ -4,14 +4,14 @@ namespace App\Table;
 
 use App\App;
 
-class Article{
+class Article extends Table{
 
     public static function getLast(){
         return App::getDB()->query("
-            SELECT articles.id, articles.title, articles.content, categories.title as category 
+            SELECT articles.id, articles.title, articles.content, categories.title as categories 
             FROM articles 
             LEFT JOIN categories 
-                on category_id = categories.id", 
+                on categorie_id = categories.id", 
             __CLASS__);
     }
 
