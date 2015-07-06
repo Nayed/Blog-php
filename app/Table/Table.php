@@ -24,6 +24,15 @@ class Table{
             get_called_class(), true);
     }
 
+    public static function query($statement, $attributes = null, $one = false){
+        if($attributes){
+            return App::getDB()->prepare($statement, $attributes, get_called_class(), $one);
+        }
+        else {
+            return App::getDB()->query($statement, get_called_class(), $one);
+        }
+    }
+
     public static function all(){
         return App::getDB()->query("
             SELECT * 

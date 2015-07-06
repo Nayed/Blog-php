@@ -1,5 +1,8 @@
 <?php
 
-$categorie = \App\Table\Categorie::find($_GET['id']);
+use App\Table\Article;
+use App\Table\Categorie;
 
-var_dump($categorie);
+$categorie = Categorie::find($_GET['id']);
+$articles = Article::lastByCategorie($_GET['id']);
+$categories = Categorie::all();
