@@ -9,6 +9,7 @@ class App{
     const DB_PASS = '';
     const DB_HOST = 'localhost';
     private static $database;
+    private static $title = "Awesome blog!";
 
     public static function getDB(){
         if(is_null(self::$database)){
@@ -20,5 +21,13 @@ class App{
     public static function notFound(){
         header("HTTP/1.0 404 Not Found");
         header("Location:index.php?p=404");
+    }
+
+    public static function getTitle(){
+        return self::$title;
+    }
+
+    public static function setTitle($title){
+        self::$title = $title;
     }
 }
