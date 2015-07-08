@@ -8,6 +8,9 @@ $post = Article::find($_GET['id']);
 if($post === false){
     App::notFound();
 }
+
+App::setTitle($post->title);
+
 $categorie = Categorie::find($post->categorie_id);
 
 ?>
