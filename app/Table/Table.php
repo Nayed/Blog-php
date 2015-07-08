@@ -6,8 +6,6 @@ use App\App;
 
 class Table{
 
-    protected static $table;
-
     private static function getTable(){
         if(is_null(static::$table)){
             $classname = explode('\\', get_called_class());
@@ -19,7 +17,7 @@ class Table{
     public static function find($id){
         return App::getDB()->prepare("
             SELECT * 
-            FROM " . static::getTable() . "
+            FROM " . static::$table . "
             WHERE id = ?", [$id],
             get_called_class(), true);
     }
@@ -36,7 +34,7 @@ class Table{
     public static function all(){
         return App::getDB()->query("
             SELECT * 
-            FROM " . static::getTable() . "",
+            FROM " . static::$table . "",
             get_called_class());
     }
 
