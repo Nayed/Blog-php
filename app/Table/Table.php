@@ -15,11 +15,12 @@ class Table{
     }
 
     public static function find($id){
-        return App::getDB()->prepare("
+        return static::query("
             SELECT * 
             FROM " . static::$table . "
-            WHERE id = ?", [$id],
-            get_called_class(), true);
+            WHERE id = ?", 
+            [$id], true
+        );
     }
 
     public static function query($statement, $attributes = null, $one = false){

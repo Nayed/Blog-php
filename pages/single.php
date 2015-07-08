@@ -11,14 +11,12 @@ if($post === false){
 
 App::setTitle($post->title);
 
-$categorie = Categorie::find($post->categorie_id);
-
 ?>
 
 <h1><?= $post->title; ?></h1>
 
 <p>
-    <em><?= $categorie->title; ?></em>
+    <em><?= $post->categories; ?></em>
 </p>
 
 <h2><?= $post->content; ?></h2>
