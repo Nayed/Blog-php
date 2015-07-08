@@ -24,7 +24,8 @@ class Article extends Table{
             SELECT articles.id, articles.title, articles.content, categories.title as categories 
             FROM articles 
             LEFT JOIN categories 
-                on categorie_id = categories.id"
+                on categorie_id = categories.id
+            ORDER BY articles.date DESC"
         );
     }
 
@@ -34,7 +35,8 @@ class Article extends Table{
             FROM articles 
             LEFT JOIN categories 
                 on categorie_id = categories.id
-            WHERE categorie_id = ?", 
+            WHERE categorie_id = ?
+            ORDER BY articles.date DESC", 
             [$categorie_id]);
     }
 
