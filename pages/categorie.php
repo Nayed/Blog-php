@@ -2,11 +2,11 @@
 
 use App\Table\Article;
 use App\Table\Categorie;
+use App\App;
 
 $categorie = Categorie::find($_GET['id']);
 if($categorie === false){
-    header("HTTP/1.0 404 Not Found");
-    header("Location:index.php?p=404");
+    App::notFound();
 }
 $articles = Article::lastByCategorie($_GET['id']);
 $categories = Categorie::all();
