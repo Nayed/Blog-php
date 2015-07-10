@@ -3,4 +3,6 @@
 require '../app/Autoloader.php';
 App\Autoloader::register();
 
-var_dump(App\Config::getInstance()->get('db_user'));
+$app = App\App::getInstance();
+$app->title = "test title";
+
