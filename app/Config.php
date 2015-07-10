@@ -18,5 +18,14 @@ class Config{
         $this->id = uniqid();
         $this->settings = require dirname(__DIR__) . '/config/config.php';
     }
-    
+
+    public function get($key){
+        if(!isset($this->settings[$key])){
+            return null;
+        }
+        else{
+            return $this->settings[$key];
+        }
+    }
+
 }
