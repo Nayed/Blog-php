@@ -9,7 +9,7 @@ class Table{
     protected $table;
     protected $db;
 
-    public function __construct(\App\Database $db){
+    public function __construct(\App\Database\Database $db){
         $this->db = $db;
         if(is_null($this->$table)){
             $parts = explode('\\', get_class($this));
