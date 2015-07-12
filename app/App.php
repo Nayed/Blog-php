@@ -13,4 +13,9 @@ class App{
         }
         return self::$_instance;
     }
+
+    public function getTable($name){
+        $className = '\\App\\Table' . ucfirst($name) . 'Table';
+        return new $className($this->getDb());
+    }
 }

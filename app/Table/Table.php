@@ -13,8 +13,8 @@ class Table{
         $this->db = $db;
         if(is_null($this->$table)){
             $parts = explode('\\', get_class($this));
-            $classname = end($parts);
-            $this->table = strtolower(str_replace('Table', '', $classname));
+            $className = end($parts);
+            $this->table = strtolower(str_replace('Table', '', $className));
         }
     }
 }

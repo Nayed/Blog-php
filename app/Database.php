@@ -24,9 +24,9 @@ class Database{
         return $this->pdo;
     }
 
-    public function query($statement, $classname, $one = false){
+    public function query($statement, $className, $one = false){
         $req = $this->getPDO()->query($statement);
-        $req->setFetchMode(PDO::FETCH_CLASS, $classname);
+        $req->setFetchMode(PDO::FETCH_CLASS, $className);
         if($one){
             $data = $req->fetch();
         }
@@ -36,10 +36,10 @@ class Database{
         return $data;
     }
 
-    public function prepare($statement, $attributes, $classname, $one = false){
+    public function prepare($statement, $attributes, $className, $one = false){
         $req = $this->getPDO()->prepare($statement);
         $req->execute($attributes);
-        $req->setFetchMode(PDO::FETCH_CLASS, $classname);
+        $req->setFetchMode(PDO::FETCH_CLASS, $className);
         if($one){
             $data = $req->fetch();
         }
