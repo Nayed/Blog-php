@@ -17,4 +17,8 @@ class Table{
             $this->table = strtolower(str_replace('Table', '', $className));
         }
     }
+
+    public function all(){
+        return $this->db->query('SELECT * FROM articles');
+    }
 }
