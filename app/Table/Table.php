@@ -6,42 +6,15 @@ use App\App;
 
 class Table{
 
-    private static function getTable(){
-        if(is_null(static::$table)){
-            $classname = explode('\\', get_called_class());
-            static::$table = strtolower(end($classname)) . 's';
+    protected $table;
+    protected $db;
+
+    public function __construct(\App\Database $db){
+        $this->db = $db;
+        if(is_null($this->$table)){
+            $parts = explode('\\', get_class($this));
+            $classname = end($parts);
+            $this->table = strtolower(str_replace('Table', '', $classname));
         }
-        return static::$table;
-    }
-
-    public static function find($id){
-        return static::query("
-            SELECT * 
-            FROM " . static::$table . "
-            WHERE id = ?", 
-            [$id], true
-        );
-    }
-
-    public static function query($statement, $attributes = null, $one = false){
-        if($attributes){
-            return App::getDB()->prepare($statement, $attributes, get_called_class(), $one);
-        }
-        else {
-            return App::getDB()->query($statement, get_called_class(), $one);
-        }
-    }
-
-    public static function all(){
-        return App::getDB()->query("
-            SELECT * 
-            FROM " . static::$table . "",
-            get_called_class());
-    }
-
-    public function __get($key){
-        $method = 'get' . ucfirst($key);
-        $this->$key = $this->$method();
-        return $this->$key;
     }
 }
