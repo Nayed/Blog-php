@@ -1,5 +1,7 @@
 <?php
 
+use Core\Config;
+use Core\Database\MysqlDatabase;
 class App{
 
     public $title = "Awesome blog!";
@@ -27,9 +29,9 @@ class App{
     }
 
     public function getDb(){
-        $config = Config::getInstance();
+        $config = Config::getInstance(ROOT . '\config\config.php');
         if(is_null($this->db_instance)){
-            $this->db_instance = new Database\MysqlDatabase(
+            $this->db_instance = new MysqlDatabase(
                 $config->get('db_name'),
                 $config->get('db_user'),
                 $config->get('db_pass'),
