@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Database;
-
 class App{
 
     public $title = "Awesome blog!";
@@ -15,8 +13,16 @@ class App{
         return self::$_instance;
     }
 
+    public static function load(){
+        session_start();
+        require ROOT . '/app/Autoloader.php';
+        App\Autoloader::register();
+        require ROOT . '/core/Autoloader.php';
+        Core\Autoloader::register();
+    }
+
     public function getTable($name){
-        $className = '\\App\\Table' . ucfirst($name) . 'Table';
+        $className = '\\App\\Table\\' . ucfirst($name) . 'Table';
         return new $className($this->getDb());
     }
 
