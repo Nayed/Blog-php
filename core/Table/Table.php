@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Table;
+namespace Core\Table;
 
-use App\App;
+use Core\Database\Database;
 
 class Table{
 
     protected $table;
     protected $db;
 
-    public function __construct(\App\Database\Database $db){
+    public function __construct(\Core\Database\Database $db){
         $this->db = $db;
         if(is_null($this->$table)){
             $parts = explode('\\', get_class($this));
