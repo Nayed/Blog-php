@@ -6,7 +6,7 @@ use Core\Entity\Entity;
 class PostEntity extends Entity{
 
     public function getUrl(){
-        return 'index.php?p=articles&id=' . $this->id;
+        return 'index.php?p=posts.show&id=' . $this->id;
     }
 
     public function getPreview(){

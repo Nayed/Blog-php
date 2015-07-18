@@ -4,8 +4,8 @@ define('ROOT', dirname(__DIR__));
 require ROOT . '/app/App.php';
 App::load();
 
-if(isset($_GET['page'])){
-    $page = $_GET['page'];
+if(isset($_GET['p'])){
+    $page = $_GET['p'];
 }
 else{
     $page = 'home';
@@ -13,8 +13,15 @@ else{
 
 ob_start();
 if($page === 'home'){
-    require ROOT . '/pages/articles/home.php';
+    require ROOT . '/pages/posts/home.php';
 }
+elseif($page === 'posts.category'){
+    require ROOT . '/pages/posts/categorie.php';
+}
+elseif($page === 'posts.show'){
+    require ROOT . '/pages/posts/show.php';
+}
+
 $content = ob_get_clean();
 
 require ROOT . '/pages/templates/default.php';
