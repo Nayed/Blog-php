@@ -13,7 +13,7 @@
 
     <div class="col-sm-4">
         <ul>
-            <?php foreach (\App\Table\Categorie::all() as $categories): ?>
+            <?php foreach (App::getInstance()->getTable('Categorie')->all() as $categories): ?>
                 <li>
                     <a href="<?= $categories->url; ?>"><?= $categories->title; ?></a>
                 </li>

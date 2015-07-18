@@ -17,4 +17,4 @@ if($page === 'home'){
 }
 $content = ob_get_clean();
 
-require ROOT . '/pages/template/default.php';
+require ROOT . '/pages/templates/default.php';
