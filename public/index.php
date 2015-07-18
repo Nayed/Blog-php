@@ -15,7 +15,7 @@ ob_start();
 if($page === 'home'){
     require ROOT . '/pages/posts/home.php';
 }
-elseif($page === 'posts.category'){
+elseif($page === 'posts.categorie'){
     require ROOT . '/pages/posts/categorie.php';
 }
 elseif($page === 'posts.show'){

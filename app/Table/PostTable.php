@@ -8,7 +8,7 @@ class PostTable extends Table {
     protected $table = 'articles';
 
     /**
-     * Recover last articles
+     * Find last articles
      * @return array
      */
     public function last(){
@@ -21,8 +21,24 @@ class PostTable extends Table {
     }
 
     /**
-     * Recover a single article with it categorie
+     * Find last articles of the category
+     * @param $categorie_id int
      * @return array
+     */
+    public function lastByCategorie($categorie_id){
+        return $this->query("
+            SELECT articles.id, articles.title, articles.content, categories.title as categories 
+            FROM articles 
+            LEFT JOIN categories 
+                on categorie_id = categories.id
+            WHERE articles.categorie_id = ?
+            ORDER BY articles.date DESC", [$categorie_id]);
+    }
+
+    /**
+     * Find a single article with it categorie
+     * @param $id int
+     * @return \App\Entity\PostEntity
      */
     public function find($id){
         return $this->query("
