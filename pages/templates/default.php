@@ -12,13 +12,13 @@
         <title><?= App::getInstance()->title;?></title>
 
         <!-- Bootstrap core CSS -->
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/public/css/bootstrap.css" rel="stylesheet">
 
     </head>
 
     <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.php">Project name</a>
