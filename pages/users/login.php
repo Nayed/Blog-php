@@ -3,10 +3,14 @@
 if(!empty($_POST)){
     $auth = new \Core\Auth\DBAuth(App::getInstance()->getDb());
     if($auth->login($_POST['username'], $_POST['password'])){
-        die('logged in');
+        header('Location: admin.php');
     }
     else{
-        die('not connected');
+        ?>
+            <div class="alert alert-danger">
+                Wrong ID
+            </div>
+        <?php
     }
 } 
 $form = new \Core\HTML\BootstrapForm($_POST);
