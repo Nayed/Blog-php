@@ -30,4 +30,9 @@ class Form{
         return $this->surround('<button type="submit">Envoyer</button>');
     }
 
+    public function password($name){
+        return $this->surround(
+            '<input type="password" name"' .$name . '" value="' . $this->getValue($name) . '">');
+    }
+
 }
