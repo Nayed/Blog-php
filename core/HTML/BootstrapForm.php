@@ -4,12 +4,25 @@ namespace Core\HTML;
 
 class BootstrapForm extends Form{
 
+    private $data;
+
+    public function __construct($data = array()){
+        $this->data = $data;
+    }
+
     /**
      * @param $html string HTML code
      * @return string
      */
     protected function surround($html){
         return "<div class=\"form-group\">{$html}</div>";
+    }
+
+    private function getValue($index){
+        if(is_object($this->data)){
+            return $this->data->$index;
+        }
+        return isset($this->data[$index]) ? $this->data[$index] : null;
     }
 
     /**
@@ -32,9 +45,5 @@ class BootstrapForm extends Form{
 
     public function submit(){
         return $this->surround('<button type="submit" class="btn btn-primary">Submit</button>');
-    }
-
-    private function getValue($index){
-        return isset($this->data[$index]) ? $this->data[$index] : null;
     }
 }
