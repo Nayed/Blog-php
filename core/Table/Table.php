@@ -26,6 +26,19 @@ class Table{
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
+    public function update($id, $fields){
+        $sql_parts = [];
+        $attributes = [];
+        foreach ($fields as $key => $value) {
+            $sql_parts[] = "$key = ?";
+            $attributes[] = $value;
+        }
+        $attributes[] = $id;
+        $sql_part = implode(', ', $sql_parts);
+        die();
+        return $this->query("UPDATE {$this->table} SET $sql_part WHERE id = ?", $attributes, true);
+    }
+
     public function query($statement, $attributes = null, $one = false){
         if($attributes){
             return $this->db->prepare(
