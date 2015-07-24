@@ -1,5 +1,13 @@
 <?php
-$post = App::getInstance()->getTable('Post')->find($_GET['id']);
+$postTable =  App::getInstance()->getTable('Post');
+if(!empty($_POST)){
+    $postTable->update($_GET['id'], [
+        'title' => $_POST['title'],
+        'content' => $_POST['content']
+    ]);
+}
+
+$post = $postTable->find($_GET['id']);
 $form = new \Core\HTML\BootstrapForm($post);
 ?>
 <form method="post">
