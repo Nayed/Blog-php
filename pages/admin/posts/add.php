@@ -6,10 +6,9 @@ if(!empty($_POST)){
         'content' => $_POST['content'],
         'categorie_id' => $_POST['categorie_id']
     ]);
+
     if($result){
-        ?>
-            <div class="alert alert-success">Post was created</div>
-        <?php
+        header('Location: admin.php?p=posts.edit&id=' . App::getInstance()->getDb()->lastInsertId());
     }
 }
 
