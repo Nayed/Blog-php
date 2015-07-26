@@ -47,7 +47,11 @@ class BootstrapForm extends Form{
         $label = '<label>' . $label . '</label>';
         $input = '<select class="form-control" name="' . $name . '">';
         foreach ($options as $key => $value) {
-            $input .= "<option value='$key'> $value</option>";
+            $attributes = '';
+            if($key == $this->getValue($name)){
+                $attributes = ' selected';
+            }
+            $input .= "<option value='$key'$attributes>$value</option>";
         }
         $input .= '</select>';
         return $this->surround($label . $input);
