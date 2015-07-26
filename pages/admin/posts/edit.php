@@ -3,7 +3,8 @@ $postTable =  App::getInstance()->getTable('Post');
 if(!empty($_POST)){
     $result = $postTable->update($_GET['id'], [
         'title' => $_POST['title'],
-        'content' => $_POST['content']
+        'content' => $_POST['content'],
+        'categorie_id' => $_POST['categorie_id']
     ]);
     if($result){
         ?>

@@ -45,7 +45,7 @@ class BootstrapForm extends Form{
 
     public function select($name, $label, $options){
         $label = '<label>' . $label . '</label>';
-        $input = '<select class="form-control" name=' . $name . '">';
+        $input = '<select class="form-control" name="' . $name . '">';
         foreach ($options as $key => $value) {
             $input .= "<option value='$key'> $value</option>";
         }
