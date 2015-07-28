@@ -1,11 +1,11 @@
 <?php 
-$posts = App::getInstance()->getTable('Post')->all();
+$categories = App::getInstance()->getTable('Categorie')->all();
 ?>
 
-<h1>Manage articles</h1>
+<h1>Manage categories</h1>
 
 <p>
-    <a href="?p=posts.add" class="btn btn-success">Add</a>
+    <a href="?p=categories.add" class="btn btn-success">Add</a>
 </p>
 
 <table class="table">
@@ -17,16 +17,16 @@ $posts = App::getInstance()->getTable('Post')->all();
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($posts as $post): ?>
+        <?php foreach ($categories as $categorie): ?>
             <tr>
-                <td><?= $post->id; ?></td>
-                <td><?= $post->title; ?></td>
+                <td><?= $categorie->id; ?></td>
+                <td><?= $categorie->title; ?></td>
                 <td>
-                    <a class="btn btn-primary" href="?p=posts.edit&id=<?= $post->id; ?>">Edit</a>
+                    <a class="btn btn-primary" href="?p=posts.edit&id=<?= $categorie->id; ?>">Edit</a>
 
                     <form action="?p=posts.delete" method="post" style="display: inline">
-                        <input type="hidden" name="id" value="<?= $post->id ?>">
-                        <button type="submit" class="btn btn-danger" href="?p=posts.delete&id=<?= $post->id; ?>">Delete</button>
+                        <input type="hidden" name="id" value="<?= $categorie->id ?>">
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>
