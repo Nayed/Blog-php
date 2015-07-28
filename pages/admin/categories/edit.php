@@ -1,28 +1,23 @@
 <?php
 
-$postTable =  App::getInstance()->getTable('Post');
+$table =  App::getInstance()->getTable('Categorie');
 if(!empty($_POST)){
-    $result = $postTable->update($_GET['id'], [
-        'title' => $_POST['title'],
-        'content' => $_POST['content'],
-        'categorie_id' => $_POST['categorie_id']
+    $result = $table->update($_GET['id'], [
+        'title' => $_POST['title']
     ]);
     if($result){
         ?>
-            <div class="alert alert-success">Post was updated</div>
+            <div class="alert alert-success">Category was updated</div>
         <?php
     }
 }
 
-$post = $postTable->find($_GET['id']);
-$categories = App::getInstance()->getTable('Categorie')->extract('id', 'title');
-$form = new \Core\HTML\BootstrapForm($post);
+$categorie = $table->find($_GET['id']);
+$form = new \Core\HTML\BootstrapForm($categorie);
 ?>
 
 
 <form method="post">
-    <?= $form->input('title', 'Article\'s title'); ?>
-    <?= $form->input('content', 'Content', ['type' => 'textarea']); ?>
-    <?= $form->select('categorie_id', 'Categorie', $categories); ?>
+    <?= $form->input('title', 'Category\'s title'); ?>
     <button class="btn btn-primary">Save</button>
 </form>
