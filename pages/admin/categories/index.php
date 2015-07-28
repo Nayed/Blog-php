@@ -22,9 +22,9 @@ $categories = App::getInstance()->getTable('Categorie')->all();
                 <td><?= $categorie->id; ?></td>
                 <td><?= $categorie->title; ?></td>
                 <td>
-                    <a class="btn btn-primary" href="?p=posts.edit&id=<?= $categorie->id; ?>">Edit</a>
+                    <a class="btn btn-primary" href="?p=categories.edit&id=<?= $categorie->id; ?>">Edit</a>
 
-                    <form action="?p=posts.delete" method="post" style="display: inline">
+                    <form action="?p=categorie.delete" method="post" style="display: inline">
                         <input type="hidden" name="id" value="<?= $categorie->id ?>">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
