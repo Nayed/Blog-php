@@ -24,7 +24,7 @@ $posts = App::getInstance()->getTable('Post')->all();
                 <td>
                     <a class="btn btn-primary" href="?p=posts.edit&id=<?= $post->id; ?>">Edit</a>
 
-                    <form action="?p=posts.delete">
+                    <form action="?p=posts.delete" style="display: inline">
                         <input type="hidden" name="id" value="<?= $post->id ?>">
                         <button type="submit" class="btn btn-danger" href="?p=posts.delete&id=<?= $post->id; ?>">Delete</button>
                     </form>
