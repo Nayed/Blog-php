@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Table;
+/*namespace App\Table;
 
 use App\App;
 
@@ -55,4 +55,4 @@ class Article extends Table{
         $html .= '<p><a href="' . $this->getURL() . ' ">See the rest...</a></p>';
         return $html;
     }
-}
+}*/
