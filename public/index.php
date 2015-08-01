@@ -11,8 +11,8 @@ else{
     $page = 'home';
 }
 
+$controller = new \App\Controller\PostsController;
 if($page === 'home'){
-    $controller = new \App\Controller\PostsController;
     $controller->index();
 }
 elseif($page === 'posts.categorie'){
