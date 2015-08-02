@@ -8,24 +8,11 @@ if(isset($_GET['p'])){
     $page = $_GET['p'];
 }
 else{
-    $page = 'home';
+    $page = 'posts.index';
 }
 
-$postController = new \App\Controller\PostsController();
-$userController = new \App\Controller\UsersController();
-$adminController = new \App\Controller\Admin\PostsController();
-if($page === 'home'){
-    $postController->index();
-}
-elseif($page === 'posts.categorie'){
-    $postController->category();
-}
-elseif($page === 'posts.show'){
-    $postController->show();
-}
-elseif($page === 'login'){
-    $userController->login();
-}
-elseif ($page === 'admin.posts.index') {
-    $adminController->index();
-}
+$page = explode('.', $page);
+$action = $page[1];
+$controller = '\App\Controller\\' . ucfirst($page[0]) . 'Controller';
+$controller = new $controller();
+$controller->$action();

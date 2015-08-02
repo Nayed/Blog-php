@@ -18,7 +18,7 @@ class PostsController extends AppController{
         $this->render('posts.index', compact('posts', 'categories'));
     }
 
-    public function category(){
+    public function categorie(){
         $categorie = $this->Categorie->find($_GET['id']);
         if($categorie === false){
             $this->notFound();
