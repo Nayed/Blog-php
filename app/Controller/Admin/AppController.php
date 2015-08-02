@@ -14,5 +14,7 @@ class AppController extends \App\Controller\AppController{
         if(!$auth->logged()){
             $this->forbidden();
         }
+        /*$logged = false;
+        $this->render('templates.default', compact('logged'));*/
     }
 }

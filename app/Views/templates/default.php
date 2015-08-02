@@ -23,6 +23,12 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.php">Project name</a>
             </div>
+            <?php //if(!$logged): ?>
+                <div class="navbar-right">
+                    <a class="navbar-brand" href="?p=users.login">Login</a>
+                </div>
+            <?php //endif; ?>
+            
         </div>
     </nav>
 
