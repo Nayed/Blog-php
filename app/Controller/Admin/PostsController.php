@@ -26,6 +26,7 @@ class PostsController extends AppController{
                 return $this->index();
             }
         }
+        $this->loadModel('Categorie');
         $categories = $this->Categorie->extract('id', 'title');
         $form = new BootstrapForm($_POST);
         $this->render('admin.posts.edit', compact('categories', 'form'));
