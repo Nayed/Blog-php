@@ -1,7 +1,3 @@
-<?php 
-$categories = App::getInstance()->getTable('Categorie')->all();
-?>
-
 <h1>Manage categories</h1>
 
 <p>
