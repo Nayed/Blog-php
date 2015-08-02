@@ -12,7 +12,7 @@ else{
 }
 
 $postController = new \App\Controller\PostsController();
-//$userController = new \App\Controller\UsersController();
+$userController = new App\Controller\UsersController();
 $adminController = new \App\Controller\Admin\PostsController();
 if($page === 'home'){
     $postController->index();
@@ -24,7 +24,7 @@ elseif($page === 'posts.show'){
     $postController->show();
 }
 elseif($page === 'login'){
-    //$userController->login();
+    $userController->login();
 }
 elseif ($page === 'admin.posts.index') {
     $adminController->index();
