@@ -18,7 +18,7 @@
                 <td><?= $categorie->id; ?></td>
                 <td><?= $categorie->title; ?></td>
                 <td>
-                    <a class="btn btn-primary" href="?p=categories.edit&id=<?= $categorie->id; ?>">Edit</a>
+                    <a class="btn btn-primary" href="?p=admin.categories.edit&id=<?= $categorie->id; ?>">Edit</a>
 
                     <form action="?p=categories.delete" method="post" style="display: inline">
                         <input type="hidden" name="id" value="<?= $categorie->id ?>">

@@ -25,4 +25,16 @@ class CategoriesController extends AppController{
         $form = new BootstrapForm($_POST);
         $this->render('admin.categories.edit', compact('form'));
     }
+
+    public function edit(){
+        if(!empty($_POST)){
+            $result = $this->Categorie->update($_GET['id'], [
+                'title' => $_POST['title']
+            ]);
+            return $this->index();
+        }
+        $category = $this->Categorie->find($_GET['id']);
+        $form = new BootstrapForm($category);
+        $this->render('admin.categories.edit', compact('form'));
+    }
 }
