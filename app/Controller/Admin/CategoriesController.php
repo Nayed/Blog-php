@@ -14,4 +14,15 @@ class CategoriesController extends AppController{
         $categories = $this->Categorie->all();
         $this->render('admin.categories.index', compact('categories'));
     }
+
+    public function add(){
+        if(!empty($_POST)){
+            $result = $this->Categorie->create([
+                'title' => $_POST['title']
+            ]);
+            return $this->index();
+        }
+        $form = new BootstrapForm($_POST);
+        $this->render('admin.categories.edit', compact('form'));
+    }
 }

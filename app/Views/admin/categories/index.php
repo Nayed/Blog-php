@@ -1,7 +1,7 @@
 <h1>Manage categories</h1>
 
 <p>
-    <a href="?p=categories.add" class="btn btn-success">Add</a>
+    <a href="?p=admin.categories.add" class="btn btn-success">Add</a>
 </p>
 
 <table class="table">
