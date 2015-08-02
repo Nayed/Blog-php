@@ -37,4 +37,11 @@ class CategoriesController extends AppController{
         $form = new BootstrapForm($category);
         $this->render('admin.categories.edit', compact('form'));
     }
+
+    public function delete(){
+        if(!empty($_POST)){
+            $result = $this->Categorie->delete($_POST['id']);
+            return $this->index();
+        }
+    }
 }

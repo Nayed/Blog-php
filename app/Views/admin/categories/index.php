@@ -20,7 +20,7 @@
                 <td>
                     <a class="btn btn-primary" href="?p=admin.categories.edit&id=<?= $categorie->id; ?>">Edit</a>
 
-                    <form action="?p=categories.delete" method="post" style="display: inline">
+                    <form action="?p=admin.categories.delete" method="post" style="display: inline">
                         <input type="hidden" name="id" value="<?= $categorie->id ?>">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
