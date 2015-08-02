@@ -11,17 +11,21 @@ else{
     $page = 'home';
 }
 
-$controller = new \App\Controller\PostsController;
+$postController = new \App\Controller\PostsController();
+//$userController = new \App\Controller\UsersController();
+$adminController = new \App\Controller\Admin\PostsController();
 if($page === 'home'){
-    $controller->index();
+    $postController->index();
 }
 elseif($page === 'posts.categorie'){
-    $controller->category();
+    $postController->category();
 }
 elseif($page === 'posts.show'){
-    $controller->show();
+    $postController->show();
 }
 elseif($page === 'login'){
-    $controller = new \App\Controller\UsersController;
-    $controller->login();
+    //$userController->login();
+}
+elseif ($page === 'admin.posts.index') {
+    $adminController->index();
 }
