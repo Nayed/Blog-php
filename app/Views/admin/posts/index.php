@@ -29,3 +29,7 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<p>
+    <a href="?p=admin.categories.index" class="btn btn-success">Categories</a>
+</p>
