@@ -23,11 +23,16 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.php">Project name</a>
             </div>
-            <?php //if(!$logged): ?>
+            <?php if(!$_SESSION): ?>
                 <div class="navbar-right">
                     <a class="navbar-brand" href="?p=users.login">Login</a>
                 </div>
-            <?php //endif; ?>
+
+            <?php else: ?>
+                <div class="navbar-right">
+                    <a class="navbar-brand" href="?p=admin.posts.index">Admin</a>
+                </div>
+            <?php endif; ?>
             
         </div>
     </nav>
