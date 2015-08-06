@@ -22,4 +22,9 @@ class UsersController extends AppController{
         $form = new BootstrapForm($_POST);
         $this->render('users.login', compact('form', 'errors'));
     }
+
+    public function disconnect(){
+        session_destroy();
+        header('Location: index.php');
+    }
 }
