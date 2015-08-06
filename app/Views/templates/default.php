@@ -31,8 +31,6 @@
             <?php else: ?>
                 <div class="navbar-right">
                     <a class="navbar-brand" href="?p=users.disconnect">Disconnect</a>
-                <!--</div>
-                <div class="navbar-right">-->
                     <a class="navbar-brand" href="?p=admin.posts.index">Admin</a>
                 </div>
             <?php endif; ?>
